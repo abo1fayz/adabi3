@@ -1,1 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>📚 مكتبة البكالوريا - الفرع العلمي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3498db;
+      --primary-dark: #2980b9;
+      --secondary: #2c3e50;
+      --accent: #e74c3c;
+      --light: #f8f9fa;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Tajawal', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      text-align: center;
+      padding: 20px;
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    h1 {
+      color: var(--secondary);
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    
+    .section-title {
+      color: var(--secondary);
+      font-size: 1.8rem;
+      margin: 40px 0 20px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 3px;
+    }
+    
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .book-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+      text-align: center;
+      position: relative;
+    }
+    
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .book-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .book-title {
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+    
+    .download-btn:hover {
+      background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+      transform: scale(1.05);
+    }
+    
+    .section-divider {
+      margin: 40px 0;
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary), rgba(0, 0, 0, 0));
+    }
+    
+    .developers-section {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px dashed #ddd;
+    }
+    
+    .developers-title {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+    }
+    
+    .dev-team {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .dev-profile {
+      position: relative;
+      width: 120px;
+      text-align: center;
+    }
+    
+    .dev-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      padding: 3px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+    
+    .dev-profile:hover .dev-avatar {
+      transform: scale(1.1);
+      border-color: var(--accent);
+    }
+    
+    .dev-name {
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--secondary);
+    }
+    
+    .lead-dev .dev-name {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    
+    .dev-role {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 3px;
+    }
+    
+    .dev-badge {
+      position: absolute;
+      top: -5px;
+      right: 15px;
+      background: var(--accent);
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+    
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--accent);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 مكتبة البكالوريا - الفرع العلمي</h1>
+    
+    <!-- قسم الكتب المحملة -->
+    <h2 class="section-title">كتب المنهاج </h2>
+    <div class="books-grid">
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📘</span>
+        <div class="book-title">كتاب الاسلامية</div>
+        <a href="بكلوريا اسلامية مجالس.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📗</span>
+        <div class="book-title">كتاب الانكليزي (الانشطة)</div>
+        <a href="بكلوريا_انكليزي_كتاب_الانشطة_مجالس.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📙</span>
+        <div class="book-title">كتاب الانكليزي (كتاب الطالب)</div>
+        <a href="بكلوريا_انكليزي_كتاب_الطالب_مجالس.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📕</span>
+        <div class="book-title">كتاب الرياضيات (هندسة)</div>
+        <a href="بكلوريا_علمي_الرياضيات_الهندسة_Copy_compressed.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📒</span>
+        <div class="book-title">كتاب الرياضيات (جبر)</div>
+        <a href="بكلوريا_علمي_الرياضيات_الجبر_مجالس.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📓</span>
+        <div class="book-title">كتاب الرياضيات (تحليل)</div>
+        <a href="books/scientific/arabic.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📓</span>
+        <div class="book-title">كتاب العلوم</div>
+        <a href="بكلوريا علمي العلوم مجالس_compressed.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
 
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📓</span>
+        <div class="book-title">كتاب الكيمياء</div>
+        <a href="بكلوريا علمي الكيمياء مجالس.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+      <div class="book-card">
+        <span class="badge">PDF</span>
+        <span class="book-icon">📓</span>
+        <div class="book-title">كتاب الفيزياء</div>
+        <a href="بكلوريا علمي الفيزياء مجالس_compressed.pdf" download class="download-btn">
+          <i class="fas fa-download"></i> تحميل
+        </a>
+      </div>
+    </div>
+    
+    <hr class="section-divider">
+    
+    <!-- قسم الكتب المؤتمتة -->
+    <h2 class="section-title">الكتب المؤتمتة</h2>
+   
+      
+    </div>
+    
+    <div class="developers-section">
+      <h2 class="developers-title">فريق التطوير</h2>
+      <div class="dev-team">
+        <div class="dev-profile lead-dev">
+          <div class="dev-badge"><i class="fas fa-crown"></i></div>
+          
+          <div class="dev-name">GM-MOHAMED</div>
+          <div class="dev-role">المطور الرئيسي</div>
+        </div>
+        
+        <div class="dev-profile">
+         
+          <div class="dev-name">محمد صالح</div>
+          <div class="dev-role">مطور مساعد</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
