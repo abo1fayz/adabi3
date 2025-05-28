@@ -13,6 +13,12 @@
       --accent: #e94560;
       --light: #e6e6e6;
       --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      --history: #f39c12;
+      --geography: #27ae60;
+      --arabic: #3498db;
+      --philosophy: #9b59b6;
+      --english: #e74c3c;
+      --turkish: #1abc9c;
     }
     
     body {
@@ -91,6 +97,18 @@
       margin-bottom: 15px;
       display: block;
       color: var(--light);
+      transition: all 0.3s;
+    }
+    
+    .history-icon { color: var(--history); }
+    .geography-icon { color: var(--geography); }
+    .arabic-icon { color: var(--arabic); }
+    .philosophy-icon { color: var(--philosophy); }
+    .english-icon { color: var(--english); }
+    .turkish-icon { color: var(--turkish); }
+    
+    .book-card:hover .book-icon {
+      transform: scale(1.2);
     }
     
     .book-title {
@@ -241,64 +259,71 @@
     <!-- قسم الكتب  -->
     <h2 class="section-title">كتب المنهاج </h2>
     <div class="books-grid">
+      <!-- التاريخ -->
       <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📘</span>
+        <i class="fas fa-landmark book-icon history-icon"></i>
         <div class="book-title">كتاب التاريخ</div>
         <a href="بكلوريا أدبي تاريخ مجالس_compressed.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
       </div>
       
+      <!-- الجغرافيا -->
       <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📗</span>
-        <div class="book-title">كتاب الجغرافيا </div>
+        <i class="fas fa-globe-asia book-icon geography-icon"></i>
+        <div class="book-title">كتاب الجغرافيا</div>
         <a href="بكلوريا أدبي جفرافية مجالس_compressed.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
       </div>
       
+      <!-- العربي -->
       <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📙</span>
+        <i class="fas fa-book-open book-icon arabic-icon"></i>
         <div class="book-title">كتاب العربي</div>
         <a href="بكلوريا أدبي عربي مجالس_compressed.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
       </div>
       
+      <!-- الفلسفة -->
       <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📕</span>
-        <div class="book-title">كتاب الفلسفة </div>
+        <i class="fas fa-brain book-icon philosophy-icon"></i>
+        <div class="book-title">كتاب الفلسفة</div>
         <a href="بكلوريا أدبي فلسفة مجالس_compressed.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
       </div>
       
+      <!-- الانكليزي (الانشطة) -->
       <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📒</span>
-        <div class="book-title">(كتاب الانكليزي-(الانشطة </div>
+        <i class="fas fa-language book-icon english-icon"></i>
+        <div class="book-title">كتاب الانكليزي (الانشطة)</div>
         <a href="بكلوريا_انكليزي_كتاب_الانشطة_مجالس.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
       </div>
       
+      <!-- الانكليزي (كتاب الطالب) -->
       <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📓</span>
+        <i class="fas fa-book book-icon english-icon"></i>
         <div class="book-title">كتاب الانكليزي (كتاب الطالب)</div>
         <a href="بكلوريا_انكليزي_كتاب_الطالب_مجالس.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
       </div>
 
-       <div class="book-card">
+      <!-- التركي -->
+      <div class="book-card">
         <span class="badge">PDF</span>
-        <span class="book-icon">📓</span>
-        <div class="book-title">كتاب التركي  </div>
+        <i class="fas fa-flag book-icon turkish-icon"></i>
+        <div class="book-title">كتاب التركي</div>
         <a href="اللغة التركية 11-12 مجالس_compressed.pdf" download class="download-btn">
           <i class="fas fa-download"></i> تحميل
         </a>
@@ -312,13 +337,13 @@
       <div class="dev-team">
         <div class="dev-profile lead-dev">
           <div class="dev-badge"><i class="fas fa-crown"></i></div>
-          
+          <img src="https://via.placeholder.com/80" alt="GM-MOHAMED" class="dev-avatar">
           <div class="dev-name">GM-MOHAMED</div>
           <div class="dev-role">المطور الرئيسي</div>
         </div>
         
         <div class="dev-profile">
-         
+          <img src="https://via.placeholder.com/80" alt="mohamed-saleh" class="dev-avatar">
           <div class="dev-name">mohamed-saleh</div>
           <div class="dev-role">مطور مساعد</div>
         </div>
